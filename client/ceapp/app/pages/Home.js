@@ -4,8 +4,12 @@ import { Text, View } from 'react-native';
 export default class Home extends Component {
 	render() {
 		return (
-			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-				<Text>heyo</Text>
+			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center',}}>
+				<View style={{ width: '100%', height: '20%', backgroundColor: 'skyblue'}} />
+				<View style={{ width: '100%', height: '20%', backgroundColor: 'indianred'}} />
+				<View style={{ width: '100%', height: '20%', backgroundColor: 'darkseagreen'}} />
+				<View style={{ width: '100%', height: '20%', backgroundColor: 'mediumpurple'}} />
+				<View style={{ width: '100%', height: '20%', backgroundColor: 'gold'}} />
 			</View>
 		);
 	}
