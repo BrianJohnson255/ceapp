@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post 'user/create'
-  get 'user/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+	post 'user/create'
+	get 'user/:id', to: 'user#show'
 end
