@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default class Home extends Component {
 	render() {
 		return (
 			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center',}}>
-				<View style={{ width: '100%', height: '20%', backgroundColor: 'skyblue', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 30 }}>Calendar</Text>
+				<View style={{ ...styles.item, backgroundColor: 'skyblue' }}>
+					<Text style={ styles.itemText }>Calendar</Text>
 				</View>
 				
-				<View style={{ width: '100%', height: '20%', backgroundColor: 'indianred', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 30 }}>Active Productions</Text>
+				<View style={{ ...styles.item, backgroundColor: 'indianred' }}>
+					<Text style={ styles.itemText }>Active Productions</Text>
 				</View>
 				
-				<View style={{ width: '100%', height: '20%', backgroundColor: 'darkseagreen', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 30 }}>Find Directors</Text>
+				<View style={{ ...styles.item, backgroundColor: 'darkseagreen' }}>
+					<Text style={ styles.itemText }>Find Directors</Text>
 				</View>
 				
-				<View style={{ width: '100%', height: '20%', backgroundColor: 'mediumpurple', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 30 }}>Find Crew</Text>
+				<View style={{ ...styles.item, backgroundColor: 'mediumpurple' }}>
+					<Text style={ styles.itemText }>Find Crew</Text>
 				</View>
 				
-				<View style={{ width: '100%', height: '20%', backgroundColor: 'gold', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 30 }}>Create Production</Text>
+				<View style={{ ...styles.item, backgroundColor: 'gold' }}>
+					<Text style={ styles.itemText }>Create Production</Text>
 				</View>
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	item: {
+		width: '100%',
+		height: '20%',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	itemText: {
+		color: 'white',
+		fontSize: 30,
+	},
+});
