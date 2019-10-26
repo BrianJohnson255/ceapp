@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+	has_many :project_members
+	has_many :projects, through: :project_members, source: :project
+
 	has_secure_password
 
 	# TODO: email regex or something?
