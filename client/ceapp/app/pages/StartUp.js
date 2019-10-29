@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 export default class StartUp extends Component {
 	render() {
+		const { navigate } = this.props.navigation;
+		
 		return (
 			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center',}}>
 				<View style={{ ...styles.item, height: '40%', backgroundColor: 'skyblue' }}>
 					<Text style={ styles.itemName }>CEA</Text>
 				</View>
-			
-				<View style={{ ...styles.item, height: '30%', backgroundColor: 'darkseagreen' }}>
+				<TouchableHighlight style={{ ...styles.item, height: '30%', backgroundColor: 'darkseagreen' }} onPress={() => navigate('Home')}>
 					<Text style={ styles.itemText }>Sign-In</Text>
-				</View>
-				
+				</TouchableHighlight>
 				<View style={{ ...styles.item, height: '20%', backgroundColor: 'mediumpurple' }}>
 					<Text style={ styles.itemText }>Sign-Up</Text>
 				</View>
