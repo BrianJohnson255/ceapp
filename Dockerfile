@@ -3,8 +3,10 @@ FROM node:12
 # Expo setup
 
 RUN npm install -g expo-cli
+
 COPY /client/ceapp /npm-build-server
 WORKDIR /npm-build-server
+RUN npm install
 
 EXPOSE 19000
 EXPOSE 19001
