@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 export default class Home extends Component {
 	render() {
+		const { navigate } = this.props.navigation;
+		
 		return (
-			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center',}}>
-				<View style={{ ...styles.item, backgroundColor: 'skyblue' }}>
+			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center'}}>
+				<TouchableHighlight style={{ ...styles.item, backgroundColor: 'skyblue' }} onPress={() => navigate('Calendar')}>
 					<Text style={ styles.itemText }>Calendar</Text>
-				</View>
-				
+				</TouchableHighlight>
 				<View style={{ ...styles.item, backgroundColor: 'indianred' }}>
 					<Text style={ styles.itemText }>Active Productions</Text>
 				</View>

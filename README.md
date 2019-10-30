@@ -14,6 +14,10 @@ The project will automatically rebuild whenever you update files in the `client/
 
 In order to run commands on the build server container, including npm commands such as `npm install --save ...`, use this command while your npm build server container is running in another shell: `docker exec ceapp_npm-build-server_1 <command>`. Example: `docker exec ceapp_npm-build-server_1 npm install --save some_package`.
 
+## Page Navigation
+
+When you want to implement navigation, make sure to import the page in the App.js file and add it in the MainNavigator (also in App.js). Also, on your page before the return statement (but still in render(), add the line const {navigate} = this.props.navigation;
+
 ## Server
 
 TODO: use Docker for this too
