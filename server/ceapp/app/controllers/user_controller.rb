@@ -5,8 +5,6 @@ class UserController < ApplicationController
 			p @user.errors
 			@errors = @user.errors.messages
 			render 'shared/form-errors.json'
-		else
-			render 'show.json'
 		end
 	end
 
