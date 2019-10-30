@@ -1,15 +1,20 @@
 class UserController < ApplicationController
+	# before_action :authenticate_user, only: [...]
+
 	def create
 		@user = User.new(user_params)
 		if !@user.save
-			p @user.errors
 			@errors = @user.errors.messages
-			render 'shared/form-errors.json'
+			render 'shared/error', status: :bad_request
 		end
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.find_by_id(params[:id])
+		if @user.nil?
+			@msg = "User not found"
+			render 'shared/error', status: :not_found
+		end
 	end
 
 	private

@@ -7,6 +7,7 @@ const apiPort = process.env['API_PORT'];
 const apiRootUrl = `http://${apiIp}:${apiPort}`;
 
 function apiRequest(method, path, params = null) {
+	let resStatus;
 	return fetch(apiRootUrl + path, {
 		method,
 		headers: {
@@ -15,8 +16,13 @@ function apiRequest(method, path, params = null) {
 		},
 		body: params !== null ? snakecaseKeys(params) : null,
 	})
-	.then(r => r.json())
-	.then(camelcaseKeys);
+	.then(r => {
+		resStatus = r.status;
+		return r.json();
+	})
+	.then(json => (
+		{ data: camelcaseKeys(json), status: resStatus }
+	));
 }
 
 function apiGetRequest(path) {
