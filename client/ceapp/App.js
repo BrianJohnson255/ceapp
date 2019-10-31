@@ -1,6 +1,7 @@
 import Home from './app/pages/Home';
 import Calendar from './app/pages/Calendar';
 import StartUp from './app/pages/StartUp';
+import LogIn from './app/pages/LogIn';
 import SignUpPage from './app/pages/SignUpPage';
 import Production from './app/pages/Production';
 
@@ -11,6 +12,7 @@ const MainNavigator = createStackNavigator({
   StartUp: { screen: StartUp },
   Home: { screen: Home },
   Calendar: { screen: Calendar },
+  LogIn: { screen: LogIn },
   SignUpPage: { screen: SignUpPage },
   Production: { screen: Production },
 });
