@@ -11,12 +11,12 @@ export default class StartUp extends Component {
 					<Text style={ styles.itemName }>CEA</Text>
 				</View>
 				
-				<TouchableHighlight style={{ ...styles.item, height: '30%', backgroundColor: 'darkseagreen' }} onPress={() => navigate('Home')}>
-					<Text style={ styles.itemText }>Sign-In</Text>
+				<TouchableHighlight style={{ ...styles.item, height: '30%', backgroundColor: 'darkseagreen' }} onPress={() => navigate('LogIn')}>
+					<Text style={ styles.itemText }>Log In</Text>
 				</TouchableHighlight>
 				
 				<TouchableHighlight style={{ ...styles.item, height: '20%', backgroundColor: 'mediumpurple' }} onPress={() => navigate('SignUpPage')}>
-					<Text style={ styles.itemText }>Sign-Up</Text>
+					<Text style={ styles.itemText }>Sign Up</Text>
 				</TouchableHighlight>
 				
 				<View style={{ ...styles.item, height: '10%', backgroundColor: 'gold' }}>
