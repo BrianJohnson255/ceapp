@@ -19,28 +19,36 @@ export default class SignUpPage extends React.Component {
         <TextInput
           style={styles.textInput}
           placeholder="First Name"
-          maxLength={20}
+		  onSubmitEditing={() => { this.Lname.focus(); }}
+          maxLength={30}
         />
         </View>
         <View style={styles.inputContainer}>
         <TextInput
+		  ref={(input) => { this.Lname = input; }}
           style={styles.textInput}
           placeholder="Last Name"
-          maxLength={20}
+		  onSubmitEditing={() => { this.email.focus(); }}
+          maxLength={30}
         />
         </View>
         <View style={styles.inputContainer}>
         <TextInput
+		  ref={(input) => { this.email = input; }}
           style={styles.textInput}
+		  autoCapitalize="none"
+		  textContentType="emailAddress"
           placeholder="Email Address"
-          maxLength={20}
+		  onSubmitEditing={() => { this.pw.focus(); }}
+          maxLength={30}
         />
         </View>
         <View style={styles.inputContainer}>
         <TextInput
+		  ref={(input) => { this.pw = input; }}
           style={styles.textInput}
           placeholder="Password"
-          maxLength={20}
+          maxLength={30}
         />
         </View>
         <View style={styles.inputContainer}>
@@ -71,11 +79,12 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     paddingTop: 15,
+	paddingBottom: 15,
     justifyContent: 'center',
 	alignItems: 'center',
   },
   textInput: {
-    height: 50,
+    height: 30,
     fontSize: 30,
     color: 'black',
     justifyContent: 'center',
