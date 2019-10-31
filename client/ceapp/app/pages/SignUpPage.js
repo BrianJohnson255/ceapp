@@ -38,31 +38,42 @@ export default class SignUpPage extends React.Component {
 					<TextInput
 						style={styles.textInput}
 						placeholder="First Name"
-						maxLength={20}
+						textContentType="givenName"
+						maxLength={30}
 						onChangeText={firstName => this.setState((prev) => ({ user: { ...prev.user, firstName } }))}
+						onSubmitEditing={() => { this.lastNameInput.focus(); }}
 					/>
 				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
+						ref={(input) => { this.lastNameInput = input; }}
 						style={styles.textInput}
 						placeholder="Last Name"
-						maxLength={20}
+						textContentType="familyName"
+						maxLength={30}
 						onChangeText={lastName => this.setState((prev) => ({ user: { ...prev.user, lastName } }))}
+						onSubmitEditing={() => { this.emailInput.focus(); }}
 					/>
 				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
+						ref={(input) => { this.emailInput = input; }}
 						style={styles.textInput}
 						placeholder="Email Address"
-						maxLength={20}
+						textContentType="emailAddress"
+						autoCapitalize="none"
+						maxLength={50}
 						onChangeText={email => this.setState((prev) => ({ user: { ...prev.user, email } }))}
+						onSubmitEditing={() => { this.passwordInput.focus(); }}
 					/>
 				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
+						ref={(input) => { this.passwordInput = input; }}
 						style={styles.textInput}
 						placeholder="Password"
-						maxLength={20}
+						textContentType="password"
+						maxLength={50}
 						secureTextEntry={true}
 						onChangeText={password => this.setState((prev) => ({ user: { ...prev.user, password } }))}
 					/>
@@ -91,26 +102,15 @@ const styles = StyleSheet.create({
 		borderTopWidth: 1,
 		borderBottomWidth: 1,
 		paddingTop: 15,
+	paddingBottom: 15,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	textInput: {
-		height: 50,
+		height: 30,
 		fontSize: 30,
 		color: 'black',
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	saveButton: {
-		borderWidth: 1,
-		borderColor: '#007BFF',
-		backgroundColor: '#007BFF',
-		padding: 15,
-		margin: 5,
-	},
-	saveButtonText: {
-		color: '#FFFFFF',
-		fontSize: 20,
-		textAlign: 'center',
 	},
 });

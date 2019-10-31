@@ -8,23 +8,22 @@ export default class Home extends Component {
 		return (
 			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center'}}>
 				<TouchableHighlight style={{ ...styles.item, backgroundColor: 'skyblue' }} onPress={() => navigate('Calendar')}>
-					<Text style={ styles.itemText }>Calendar</Text>
+					<Text style={ styles.itemText }>Production</Text>
 				</TouchableHighlight>
-
-				<TouchableHighlight style={{ ...styles.item, backgroundColor: 'indianred' }} onPress={() => navigate('Production')}>
+				<View style={{ ...styles.item, backgroundColor: 'indianred' }}>
 					<Text style={ styles.itemText }>Active Productions</Text>
-				</TouchableHighlight>
+				</View>
 				
 				<View style={{ ...styles.item, backgroundColor: 'darkseagreen' }}>
-					<Text style={ styles.itemText }>Find Directors</Text>
+					<Text style={ styles.itemText }>FiProductiontors</Text>
 				</View>
 				
 				<View style={{ ...styles.item, backgroundColor: 'mediumpurple' }}>
-					<Text style={ styles.itemText }>Find Crew</Text>
+					<Text style={ styles.itemText }>FiProduction</Text>
 				</View>
 				
 				<View style={{ ...styles.item, backgroundColor: 'gold' }}>
-					<Text style={ styles.itemText }>Create Production</Text>
+					<Text style={ styles.itemText }>CreaProduction</Text>
 				</View>
 			</View>
 		);
