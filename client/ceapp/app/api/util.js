@@ -14,7 +14,7 @@ function apiRequest(method, path, params = null) {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
 		},
-		body: params !== null ? snakecaseKeys(params) : null,
+		body: params !== null ? JSON.stringify(snakecaseKeys(params)) : null,
 	})
 	.then(r => {
 		resStatus = r.status;
