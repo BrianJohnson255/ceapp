@@ -5,7 +5,6 @@ RUN npm install -g expo-cli
 WORKDIR /npm-build-server
 COPY package.json .
 COPY package-lock.json .
-# COPY babel.config.js .
 
 RUN npm install
 

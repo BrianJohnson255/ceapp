@@ -1,9 +1,11 @@
-import Home from './app/pages/Home';
-import Calendar from './app/pages/Calendar';
-import StartUp from './app/pages/StartUp';
-import LogIn from './app/pages/LogIn';
-import SignUpPage from './app/pages/SignUpPage';
-import Production from './app/pages/Production';
+import { registerRootComponent } from 'expo';
+
+import Home from './pages/Home';
+import Calendar from './pages/Calendar';
+import StartUp from './pages/StartUp';
+import LogIn from './pages/LogIn';
+import SignUpPage from './pages/SignUpPage';
+import Production from './pages/Production';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -19,4 +21,4 @@ const MainNavigator = createStackNavigator({
 
 const App = createAppContainer(MainNavigator);
 
-export default App;
+export default registerRootComponent(App);
