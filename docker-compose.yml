@@ -2,22 +2,22 @@ version: '3'
 services:
     npm-build-server:
         build:
-            context: ./client/ceapp
+            context: ./client
         network_mode: host
         ports:
             - "19000:19000"
             - "19001:19001"
             - "19002:19002"
         volumes:
-            - ./client/ceapp/app:/npm-build-server/app
+            - ./client/app:/npm-build-server/app
         depends_on:
             - server
     server:
         build:
-            context: ./server/ceapp
+            context: ./server
         network_mode: host
         volumes:
-            - ./server/ceapp:/server
+            - ./server:/server
         ports:
             - "3000:3000"
     # db:
