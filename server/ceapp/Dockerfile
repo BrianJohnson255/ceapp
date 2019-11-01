@@ -1,9 +1,18 @@
-# ...
+FROM ruby:2.6
 
-# COPY entrypoint.sh /usr/bin/
-# RUN chmod +x /usr/bin/entrypoint.sh
-# ENTRYPOINT ["entrypoint.sh"]
+WORKDIR /server
 
-# EXPOSE 3000
+COPY Gemfile .
+COPY Gemfile.lock .
+RUN bundle install
 
-# CMD ["rails", "server", "-b", "0.0.0.0"]
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+
+COPY . .
+
+EXPOSE 3000
+ENV HOST_IP=0.0.0.0
+CMD rails server -b $HOST_IP -p 3000

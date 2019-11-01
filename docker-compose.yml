@@ -10,16 +10,17 @@ services:
             - "19002:19002"
         volumes:
             - ./client/ceapp/app:/npm-build-server/app
+        depends_on:
+            - server
+    server:
+        build:
+            context: ./server/ceapp
+        network_mode: host
+        volumes:
+            - ./server/ceapp:/server
+        ports:
+            - "3000:3000"
     # db:
         # image: postgres
         # volumes:
             # - ./tmp/db:/var/lib/postgresql/data
-  # web:
-    # build: .
-    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    # volumes:
-        # - .:/myapp
-    # ports:
-        # - "3000:3000"
-    # depends_on:
-        # - db
