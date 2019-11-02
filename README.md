@@ -19,5 +19,6 @@ To stop the project use `docker-compose down` (it may take a bit).
 
 The project will automatically update whenever you update files in the `client` or `server` directories.
 
-Check out `DOCS.md` for advice/help.
+The `docker-compose logs -f npm-build-server` and `docker-compose logs -f server` commands can be used to see the output of the containers to view errors and logs.
 
+Check out `DOCS.md` for more advice/help.
