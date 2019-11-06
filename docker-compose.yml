@@ -4,6 +4,8 @@ services:
         build:
             context: ./client
         network_mode: host
+        environment:
+            - API_IP
         ports:
             - "19000:19000"
             - "19001:19001"
