@@ -13,7 +13,7 @@ For the npm build server to work, you'll need to set the `API_IP` environment va
 
 Once that's done, simply run `docker-compose up -d` in the project root to start the project.
 
-To connect to the npm build server, first install the [Expo](https://expo.io/) app on your phone. Then, while the project is running, run `docker-compose logs -f npm-build-server` to view a QR code that will open the project in the Expo app. The project will then be saved in Expo for easy access. Alternatively, you can email or text yourself the link `exp://<ip>`, where `<ip>` is the internal ip of the computer the project is running on.
+To connect to the npm build server, first install the [Expo](https://expo.io/) app on your phone. Then, while the project is running, run `docker-compose logs -f npm-build-server` to view a QR code that will open the project in the Expo app. The project will then be saved in Expo for easy access. Alternatively, you can email or text yourself the link `exp://<ip>`, where `<ip>` is the internal ip of the computer the project is running on. Your phone will need to be on the same wifi network as the computer running the project.
 
 To stop the project use `docker-compose down` (it may take a bit).
 
