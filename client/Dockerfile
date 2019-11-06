@@ -16,5 +16,4 @@ EXPOSE 19002
 
 ENV API_PORT=3000
 
-# This is so gross, how to fix???
-CMD API_IP=$(hostname -I | awk '{print $1}') npm start
+CMD npm start
