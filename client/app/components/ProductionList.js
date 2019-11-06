@@ -6,11 +6,7 @@ const ProductionList = ({ itemList }) => (
 	<View>
 		<FlatList
 				data={itemList}
-				renderItem={({ item }) => <ProductionListRow
-					title={item.title}
-					description={item.description}
-					imageUrl={item.imageUrl}
-				/>}
+				renderItem={({ item }) => <ProductionListRow production={item} />}
 				keyExtractor={item => item.id}
 			/>
 

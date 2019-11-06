@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-const ProductionListRow = ({ title, description, imageUrl }) => (
+const ProductionListRow = ({ production }) => (
 	<View>
-		<Image source={{ uri: imageUrl }} style={{ width: 50, height: 50 }} />
+		<Image source={{ uri: production.imageUrl }} style={{ width: 50, height: 50 }} />
 		<View>
 			<Text>
-				{title}
+				{production.title}
 			</Text>
 			<Text>
-				{description}
+				{production.description}
 			</Text>
 		</View>
 
