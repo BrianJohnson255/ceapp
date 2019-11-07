@@ -6,9 +6,32 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 
+import { login } from '../api/user';
+
 export default class SignUpPage extends React.Component {
+	constructor(params) {
+		super(params)
+
+		this.state = {
+			user: {
+				email: '',
+				password: '',
+			},
+		};
+	}
+
+	submitForm() {
+		login(this.state.user).then(res => {
+			if (res.status === 200) {
+				const { navigate } = this.props.navigation;
+				navigate('Home');
+			} else {
+				// show error...
+			}
+		});
+	}
+
 	render() {
-		const { navigate } = this.props.navigation;
 	
 		return (
 			<View style={styles.container}>
@@ -23,6 +46,7 @@ export default class SignUpPage extends React.Component {
 					textContentType="emailAddress"
 					placeholder="Email Address"
 					onSubmitEditing={() => { this.pw.focus(); }}
+					onChangeText={email => this.setState(prev => ({ user: { ...prev.user, email } }))}
 					maxLength={30}
 				/>
 				</View>
@@ -32,13 +56,15 @@ export default class SignUpPage extends React.Component {
 					style={styles.textInput}
 					placeholder="Password"
 					secureTextEntry={true}
+					onChangeText={password => this.setState(prev => ({ user: { ...prev.user, password } }))}
+					onSubmitEditing={this.submitForm.bind(this)}
 					maxLength={30}
 				/>
 				</View>
 				<View style={styles.inputContainer}>
 					<TouchableOpacity
 						style={styles.saveButton}
-						onPress={() => navigate('Home')}
+						onPress={this.submitForm.bind(this)}
 					>
 						<Text style={styles.saveButtonText}>Log In</Text>
 					</TouchableOpacity>
