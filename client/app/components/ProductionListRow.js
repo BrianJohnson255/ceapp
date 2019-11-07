@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 const ProductionListRow = ({ production }) => (
-	<View>
-		<Image source={{ uri: production.imageUrl }} style={{ width: 50, height: 50 }} />
+	<View style = {{width: 400, height: 125}}>
+		<Image source={{ uri: production.imageUrl }} style={{ width: 75, height: 75 }} />
 		<View>
 			<Text>
 				{production.title}
