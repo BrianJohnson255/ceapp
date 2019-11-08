@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import {
+	Alert,
 	ScrollView,
 	TextInput,
 	TouchableOpacity,
@@ -26,7 +27,7 @@ export default class SignUpPage extends React.Component {
 				const { navigate } = this.props.navigation;
 				navigate('Home');
 			} else {
-				// show error...
+				Alert.alert('Error', res.data.msg);
 			}
 		});
 	}

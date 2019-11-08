@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import {
+	Alert,
 	ScrollView,
 	TextInput,
 	TouchableOpacity,
 } from 'react-native';
+
+import R from 'ramda';
 
 import { createUser } from '../api/user';
 
@@ -22,9 +25,19 @@ export default class SignUpPage extends React.Component {
 		};
 	}
 
-	submitForm() {
-		// TODO: validate...
-		createUser(this.state.user);
+	async submitForm() {
+		const res = await createUser(this.state.user);
+		if (res.status === 200) {
+			this.props.navigation.navigate('Home');
+		} else {
+			const msg = R.compose(
+				R.join('\n'),
+				R.map(([key, errs]) => `${key} ${errs[0]}`),
+				R.toPairs,
+			)(res.data.errors);
+
+			Alert.alert('Errors', msg);
+		}
 	}
 
 	render() {

@@ -8,6 +8,10 @@ import { apiGetRequest, apiPostRequest, setAuthToken } from './util';
 // returns a user with all those fields, plus an id
 function createUser(user) {
 	return apiPostRequest('/user/create', { user });
+	if (res.status === 200) {
+		await setAuthToken(res.data.authToken);
+	}
+	return res;
 }
 
 function getUser(id) {
