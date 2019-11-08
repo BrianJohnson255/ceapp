@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native';
+
 import camelcaseKeys from 'camelcase-keys';
 import snakecaseKeys from 'snakecase-keys';
 
@@ -6,13 +8,14 @@ const apiPort = process.env['API_PORT'];
 
 const apiRootUrl = `http://${apiIp}:${apiPort}`;
 
-function apiRequest(method, path, params = null) {
+function apiRequest({ method, path, headers = {}, params = null }) {
 	let resStatus;
 	return fetch(apiRootUrl + path, {
 		method,
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
+			...headers,
 		},
 		body: params !== null ? JSON.stringify(snakecaseKeys(params)) : null,
 	})
@@ -26,11 +29,34 @@ function apiRequest(method, path, params = null) {
 }
 
 function apiGetRequest(path) {
-	return apiRequest('GET', path);
+	return apiRequest({ method: 'GET', path });
 }
 
 function apiPostRequest(path, params) {
-	return apiRequest('POST', path, params);
+	return apiRequest({ method: 'POST', path, params });
 }
 
-export { apiPostRequest, apiGetRequest };
+async function authenticatedApiPostRequest(path) {
+	const token = (await getAuthToken()) || '';
+	return await apiRequest({ method: 'POST', path, params, headers: { Authorization: token } });
+}
+
+async function getAuthToken() {
+	try {
+		const token = await AsyncStorage.getItem('@authToken');
+		return token;
+	} catch(e) {
+		// TODO: handle this...
+	}
+}
+
+async function setAuthToken(token) {
+	try {
+		const res = await AsyncStorage.setItem('@authToken', token);
+		return res;
+	} catch(e) {
+		// TODO: handle this...
+	}
+}
+
+export { apiPostRequest, apiGetRequest, authenticatedApiPostRequest, setAuthToken };
