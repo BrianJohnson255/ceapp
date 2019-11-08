@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 	has_many :project_members
-	has_many :projects, through: :project_members, source: :project
+	has_many :projects_memberships, through: :project_members, source: :project
+
+	has_many :projects
 
 	has_secure_password
 	has_secure_token :auth_token
