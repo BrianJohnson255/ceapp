@@ -1,4 +1,6 @@
+import * as React from 'react';
 import { registerRootComponent } from 'expo';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
@@ -19,6 +21,16 @@ const MainNavigator = createStackNavigator({
   Production: { screen: Production },
 });
 
-const App = createAppContainer(MainNavigator);
+const theme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		primary: '#1456FF',
+		accent: '#FFBC14',
+	},
+};
+
+const AppNav = createAppContainer(MainNavigator);
+const App = () => (<PaperProvider theme={theme}><AppNav /></PaperProvider>)
 
 export default registerRootComponent(App);

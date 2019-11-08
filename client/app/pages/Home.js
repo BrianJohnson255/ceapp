@@ -1,45 +1,49 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { Button, Card, Surface, Title } from 'react-native-paper';
 
 export default class Home extends Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		
 		return (
-			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center'}}>
-				<TouchableHighlight style={{ ...styles.item, backgroundColor: 'skyblue' }} onPress={() => navigate('Calendar')}>
-					<Text style={ styles.itemText }>Calendar</Text>
-				</TouchableHighlight>
-
-				<TouchableHighlight style={{ ...styles.item, backgroundColor: 'indianred' }} onPress={() => navigate('Production')}>
-					<Text style={ styles.itemText }>Active Productions</Text>
-				</TouchableHighlight>
+			<ScrollView>
+					<TouchableWithoutFeedback onPress={() => navigate('Calendar')}>
+						<Card style={{padding: 10}} elevation={9}>
+							<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+							<Card.Title title="Calendar" subtitle="See a calendar with all productions" />
+						</Card>
+					</TouchableWithoutFeedback>
 				
-				<View style={{ ...styles.item, backgroundColor: 'darkseagreen' }}>
-					<Text style={ styles.itemText }>Find Directors</Text>
-				</View>
+				<TouchableWithoutFeedback onPress={() => navigate('Production')}>
+					<Card style={{padding: 10}} elevation={9}>
+						<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+						<Card.Title title="Active Productions" subtitle="Find a production for you" />
+					</Card>
 				
-				<View style={{ ...styles.item, backgroundColor: 'mediumpurple' }}>
-					<Text style={ styles.itemText }>Find Crew</Text>
-				</View>
+				</TouchableWithoutFeedback>
 				
-				<View style={{ ...styles.item, backgroundColor: 'gold' }}>
-					<Text style={ styles.itemText }>Create Production</Text>
-				</View>
-			</View>
+				<TouchableWithoutFeedback>
+					<Card style={{padding: 10}} elevation={9}>
+						<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+						<Card.Title title="Find Directors" subtitle="Find a director you want to work with" />
+					</Card>
+				</TouchableWithoutFeedback>
+				
+				<TouchableWithoutFeedback>
+					<Card style={{padding: 10}} elevation={9}>
+						<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+						<Card.Title title="Find Crew" subtitle="Get a top-notch crew for your film" />
+					</Card>
+				</TouchableWithoutFeedback>
+				
+				<TouchableWithoutFeedback>
+					<Card style={{padding: 10}} elevation={9}>
+						<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+						<Card.Title title="Create Production" subtitle="Create a production for potential crew members to find" />
+					</Card>
+				</TouchableWithoutFeedback>
+			</ScrollView>
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	item: {
-		width: '100%',
-		height: '20%',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	itemText: {
-		color: 'white',
-		fontSize: 30,
-	},
-});
