@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
 	def login
 		user = User.find_by_email(params[:user][:email])
