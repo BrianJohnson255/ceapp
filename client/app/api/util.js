@@ -36,7 +36,7 @@ function apiPostRequest(path, params) {
 	return apiRequest({ method: 'POST', path, params });
 }
 
-async function authenticatedApiPostRequest(path) {
+async function authenticatedApiPostRequest(path, params) {
 	const token = (await getAuthToken()) || '';
 	return await apiRequest({ method: 'POST', path, params, headers: { Authorization: token } });
 }
