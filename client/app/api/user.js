@@ -6,7 +6,7 @@ import { apiGetRequest, apiPostRequest, setAuthToken } from './util';
 //  - email
 //  - password
 // returns a user with all those fields, plus an id
-function createUser(user) {
+async function createUser(user) {
 	const res = apiPostRequest('/user/create', { user });
 	if (res.status === 200) {
 		await setAuthToken(res.data.authToken);
