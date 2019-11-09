@@ -1,7 +1,10 @@
 module Authenticate
 
 	def current_user
-		@current_user ||= User.find_by(auth_token: request.headers['Authorization'])
+		token = request.headers['Authorization']
+		if token.present?
+			@current_user ||= User.find_by(auth_token: token)
+		end
 	end
 
 	def authenticate_user

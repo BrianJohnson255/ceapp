@@ -1,1 +1,3 @@
-json.user @user, :id, :email, :first_name, :last_name
+json.user do
+	json.partial! @user
+end

@@ -1,1 +1,3 @@
-json.project @project, :id, :title, :description
+json.project do
+	json.partial! @project
+end
