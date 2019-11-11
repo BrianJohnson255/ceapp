@@ -1,4 +1,4 @@
-import { apiGetRequest, apiPostRequest, setAuthToken } from './util';
+import { apiGetRequest, apiPostRequest, setAuthToken, getAuthToken } from './util';
 
 // user fields:
 //  - firstName
@@ -26,4 +26,8 @@ async function login(user) {
 	return res;
 }
 
-export { createUser, getUser, login };
+async function isLoggedIn() {
+	return (await getAuthToken()) !== null;
+}
+
+export { createUser, getUser, login, isLoggedIn };

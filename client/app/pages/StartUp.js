@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
+import { isLoggedIn } from '../api/user';
+
 export default class StartUp extends Component {
+	componentDidMount() {
+		isLoggedIn().then(stat => {
+			if (stat) {
+				this.props.navigation.navigate('Home');
+			}
+		});
+	}
+
 	render() {
 		const { navigate } = this.props.navigation;
 		

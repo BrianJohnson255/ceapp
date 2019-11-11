@@ -59,4 +59,4 @@ async function setAuthToken(token) {
 	}
 }
 
-export { apiPostRequest, apiGetRequest, authenticatedApiPostRequest, setAuthToken };
+export { apiPostRequest, apiGetRequest, authenticatedApiPostRequest, setAuthToken, getAuthToken };
