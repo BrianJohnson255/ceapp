@@ -54,42 +54,43 @@ export default class SignUpPage extends React.Component {
 							placeholder="First Name"
 							textContentType="givenName"
 							maxLength={30}
-							onChangeText={firstName => this.setState((prev) => ({ user: { ...prev.user, firstName } }))}
-							onSubmitEditing={() => { this.lastNameInput.focus(); }}
+							onChangeText={text => this.setState(R.assocPath(['user', 'firstName'], text))}
+							onSubmitEditing={() => this.lastNameInput.focus()}
 						/>
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
-							ref={(input) => { this.lastNameInput = input; }}
+							ref={input => this.lastNameInput = input}
 							style={styles.textInput}
 							placeholder="Last Name"
 							textContentType="familyName"
 							maxLength={30}
-							onChangeText={lastName => this.setState((prev) => ({ user: { ...prev.user, lastName } }))}
-							onSubmitEditing={() => { this.emailInput.focus(); }}
+							onChangeText={text => this.setState(R.assocPath(['user', 'lastName'], text))}
+							onSubmitEditing={() => this.emailInput.focus()}
 						/>
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
-							ref={(input) => { this.emailInput = input; }}
+							ref={input => this.emailInput = input}
 							style={styles.textInput}
 							placeholder="Email Address"
 							textContentType="emailAddress"
 							autoCapitalize="none"
 							maxLength={50}
-							onChangeText={email => this.setState((prev) => ({ user: { ...prev.user, email } }))}
-							onSubmitEditing={() => { this.passwordInput.focus(); }}
+							onChangeText={text => this.setState(R.assocPath(['user', 'email'], text))}
+							onSubmitEditing={() => this.passwordInput.focus()}
 						/>
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
-							ref={(input) => { this.passwordInput = input; }}
+							ref={input => this.passwordInput = input}
 							style={styles.textInput}
 							placeholder="Password"
 							textContentType="password"
 							maxLength={50}
 							secureTextEntry={true}
-							onChangeText={password => this.setState((prev) => ({ user: { ...prev.user, password } }))}
+							onChangeText={text => this.setState(R.assocPath(['user', 'password'], text))}
+							onSubmitEditing={this.submitForm.bind(this)}
 						/>
 					</View>
 					<View style={styles.inputContainer}>

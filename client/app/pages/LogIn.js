@@ -7,6 +7,8 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 
+import R from 'ramda';
+
 import { login } from '../api/user';
 
 export default class SignUpPage extends React.Component {
@@ -46,18 +48,18 @@ export default class SignUpPage extends React.Component {
 					autoCapitalize="none"
 					textContentType="emailAddress"
 					placeholder="Email Address"
-					onSubmitEditing={() => { this.pw.focus(); }}
-					onChangeText={email => this.setState(prev => ({ user: { ...prev.user, email } }))}
+					onSubmitEditing={() => this.pw.focus()}
+					onChangeText={text => this.setState(R.assocPath(['user', 'email'], text))}
 					maxLength={30}
 				/>
 				</View>
 				<View style={styles.inputContainer}>
 				<TextInput
-					ref={(input) => { this.pw = input; }}
+					ref={input => this.pw = input}
 					style={styles.textInput}
 					placeholder="Password"
 					secureTextEntry={true}
-					onChangeText={password => this.setState(prev => ({ user: { ...prev.user, password } }))}
+					onChangeText={text => this.setState(R.assocPath(['user', 'password'], text))}
 					onSubmitEditing={this.submitForm.bind(this)}
 					maxLength={30}
 				/>
