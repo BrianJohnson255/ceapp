@@ -1,39 +1,23 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-
-import { isLoggedIn } from '../api/user';
-import { switchScreen } from '../util';
+import { StyleSheet, Text, View, TouchableHighlight, Image} from 'react-native';
+import {Button} from 'react-native-paper'
 
 export default class StartUp extends Component {
-	componentDidMount() {
-		isLoggedIn().then(stat => {
-			if (stat) {
-				switchScreen('Home', this.props.navigation);
-			}
-		});
-	}
-
 	render() {
 		const { navigate } = this.props.navigation;
 		
 		return (
-			<View style={{ flex: 1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center',}}>
-				<View style={{ ...styles.item, height: '40%', backgroundColor: 'skyblue' }}>
-					<Text style={ styles.itemName }>CEA</Text>
-				</View>
-				
-				<TouchableHighlight style={{ ...styles.item, height: '30%', backgroundColor: 'darkseagreen' }} onPress={() => navigate('LogIn')}>
-					<Text style={ styles.itemText }>Log In</Text>
-				</TouchableHighlight>
-				
-				<TouchableHighlight style={{ ...styles.item, height: '20%', backgroundColor: 'mediumpurple' }} onPress={() => navigate('SignUpPage')}>
-					<Text style={ styles.itemText }>Sign Up</Text>
-				</TouchableHighlight>
-				
-				<View style={{ ...styles.item, height: '10%', backgroundColor: 'gold' }}>
-					<Text style={ styles.itemText }>Help</Text>
-				</View>
-			</View>
+			<View style={{flex: 1, flexDirection: 'column', ...styles.item, height: '100%', backgroundColor: 'white' }}>
+				<Text>{`\n`}</Text>
+				<Image style={{}}source={require('./CEALogo.png')}/>
+				<Text>{'\n\n\n'}</Text>
+				<Button style={{ ...styles.button}} mode="contained" color="#260859" onPress={() => navigate('LogIn')}>Log In</Button>
+				<Text>{`\n`}</Text>
+				<Button style={{ ...styles.button}} mode="contained" color="#260859" onPress={() => navigate('SignUpPage')}>Sign up</Button>
+				<Text>{`\n`}</Text>
+				<Button style={{ ...styles.button}} mode="contained" color="#260859" onPress={() => navigate('SignUpPage')}>Help</Button>
+
+			</View>	
 		);
 	}
 }
@@ -41,15 +25,10 @@ export default class StartUp extends Component {
 const styles = StyleSheet.create({
 	item: {
 		width: '100%',
-		justifyContent: 'center',
 		alignItems: 'center',
 	},
-	itemText: {
-		color: 'white',
-		fontSize: 30,
-    },
-    itemName: {
-        color: 'black',
-        fontSize: 128,
-    }
+	button: {
+		width: '50%',
+			
+	}
 });
