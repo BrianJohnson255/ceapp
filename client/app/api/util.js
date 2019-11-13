@@ -3,14 +3,11 @@ import { AsyncStorage } from 'react-native';
 import camelcaseKeys from 'camelcase-keys';
 import snakecaseKeys from 'snakecase-keys';
 
-const apiIp = process.env['API_IP'];
-const apiPort = process.env['API_PORT'];
-
-const apiRootUrl = `http://${apiIp}:${apiPort}`;
+import ENV from '../env';
 
 function apiRequest({ method, path, headers = {}, params = null }) {
 	let resStatus;
-	return fetch(apiRootUrl + path, {
+	return fetch(ENV.apiUrl + path, {
 		method,
 		headers: {
 			Accept: 'application/json',
