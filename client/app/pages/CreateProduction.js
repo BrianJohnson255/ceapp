@@ -7,6 +7,7 @@ export default class CreateProduction extends Component {
 		const { goBack } = this.props.navigation;
 		
 		return (
+		
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<View>
 					<Appbar style={{left: 0, right: 0, top: 0}}>

@@ -17,8 +17,8 @@ const MainNavigator = createStackNavigator({
   StartUp: { screen: StartUp, navigationOptions: () => ({ header: null })},
   Home: { screen: Home, navigationOptions: () => ({ header: null })},
   Calendar: { screen: Calendar },
-  LogIn: { screen: LogIn },
-  SignUpPage: { screen: SignUpPage },
+  LogIn: { screen: LogIn, navigationOptions: () => ({ header: null })},
+  SignUpPage: { screen: SignUpPage, navigationOptions: () => ({ header: null })},
   Production: { screen: Production },
   CreateProduction: { screen: CreateProduction, navigationOptions: () => ({ header: null })},
 });
