@@ -2,6 +2,7 @@ import * as React from 'react';
 import { registerRootComponent } from 'expo';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
+import UserInfo from './pages/UserInfo';
 import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 import StartUp from './pages/StartUp';
@@ -20,6 +21,7 @@ const MainNavigator = createStackNavigator({
   LogIn: { screen: LogIn },
   SignUpPage: { screen: SignUpPage },
   Production: { screen: Production },
+  UserInfo: {screen: UserInfo},
   CreateProduction: { screen: CreateProduction, navigationOptions: () => ({ header: null })},
 });
 

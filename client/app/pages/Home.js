@@ -40,13 +40,21 @@ export default class Home extends Component {
 							<Card.Title title="Find Crew" subtitle="Get a top-notch crew for your film" />
 						</Card>
 					</TouchableWithoutFeedback>
-					
+
+					<TouchableWithoutFeedback onPress={() => navigate('UserInfo')}>
+						<Card style={{padding: 10}} elevation={9}>
+							<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+							<Card.Title title="My info" subtitle="Veiw and change my profile" />
+						</Card>
+					</TouchableWithoutFeedback>
+
 					<TouchableWithoutFeedback onPress={() => navigate('CreateProduction')}>
 						<Card style={{padding: 10}} elevation={9}>
 							<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
 							<Card.Title title="Create Production" subtitle="Create a production for potential crew members to find" />
 						</Card>
 					</TouchableWithoutFeedback>
+
 				</ScrollView>
 			//</View>
 		);
