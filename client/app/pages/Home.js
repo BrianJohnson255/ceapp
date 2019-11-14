@@ -43,6 +43,13 @@ export default class Home extends Component {
 							</Card>
 						</TouchableWithoutFeedback>
 						
+						<TouchableWithoutFeedback onPress={() => navigate('UserInfo')}>
+						<Card style={{padding: 10}} elevation={9}>
+							<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+							<Card.Title title="My info" subtitle="Veiw and change my profile" />
+						</Card>
+					</TouchableWithoutFeedback>
+						
 						<TouchableWithoutFeedback onPress={() => navigate('CreateProduction')}>
 							<Card style={{padding: 10}} elevation={9}>
 								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
