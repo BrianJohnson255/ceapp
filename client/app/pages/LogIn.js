@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Keyboard } from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
 import {
 	Alert,
 	ScrollView,
-	TextInput,
 	TouchableOpacity,
+	TouchableWithoutFeedback
 } from 'react-native';
 
 import R from 'ramda';
@@ -37,42 +38,43 @@ export default class SignUpPage extends React.Component {
 	render() {
 	
 		return (
-			<View style={styles.container}>
-				<View>
-					<Text style={styles.header}>Log In</Text>
+			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+				<View style={styles.container}>
+					<View>
+						<Text style={styles.header}>Log In</Text>
+					</View>
+				
+					<View style={styles.inputContainer}>
+					<TextInput
+						mode="outlined"
+						autoCapitalize="none"
+						textContentType="emailAddress"
+						placeholder="Email Address"
+						onSubmitEditing={() => this.pw.focus()}
+						onChangeText={text => this.setState(R.assocPath(['user', 'email'], text))}
+						maxLength={30}
+					/>
+					</View>
+					<View style={styles.inputContainer}>
+					<TextInput
+						mode="outlined"
+						ref={input => this.pw = input}
+						placeholder="Password"
+						secureTextEntry={true}
+						onChangeText={text => this.setState(R.assocPath(['user', 'password'], text))}
+						maxLength={30}
+					/>
+					</View>
+					<View style={styles.inputContainer}>
+						<Button
+							style={styles.saveButton}
+							onPress={this.submitForm.bind(this)}
+						>
+							<Text style={styles.saveButtonText}>Log In</Text>
+						</Button>
+					</View>
 				</View>
-			
-				<View style={styles.inputContainer}>
-				<TextInput
-					style={styles.textInput}
-					autoCapitalize="none"
-					textContentType="emailAddress"
-					placeholder="Email Address"
-					onSubmitEditing={() => this.pw.focus()}
-					onChangeText={text => this.setState(R.assocPath(['user', 'email'], text))}
-					maxLength={30}
-				/>
-				</View>
-				<View style={styles.inputContainer}>
-				<TextInput
-					ref={input => this.pw = input}
-					style={styles.textInput}
-					placeholder="Password"
-					secureTextEntry={true}
-					onChangeText={text => this.setState(R.assocPath(['user', 'password'], text))}
-					onSubmitEditing={this.submitForm.bind(this)}
-					maxLength={30}
-				/>
-				</View>
-				<View style={styles.inputContainer}>
-					<TouchableOpacity
-						style={styles.saveButton}
-						onPress={this.submitForm.bind(this)}
-					>
-						<Text style={styles.saveButtonText}>Log In</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
+			</TouchableWithoutFeedback>
 		);
 	}
 }
@@ -80,7 +82,7 @@ export default class SignUpPage extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: 45,
-		backgroundColor: '#F5FCFF',
+		backgroundColor: '#FFFFFF',
 	},
 	header: {
 		fontSize: 60,
@@ -89,17 +91,16 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	inputContainer: {
-		borderColor: '#CCCCCC',
-		borderTopWidth: 1,
-		borderBottomWidth: 1,
-		paddingTop: 15,
-		paddingBottom: 15,
-		justifyContent: 'center',
-		alignItems: 'center',
+		//borderColor: '#CCCCCC',
+		//borderTopWidth: 1,
+		//borderBottomWidth: 1,
+		padding: 15,
+		//justifyContent: 'center',
+		//alignItems: 'center',
 	},
 	textInput: {
-		height: 30,
-		fontSize: 30,
+		//height: 25,
+		//fontSize: 25,
 		color: 'black',
 		justifyContent: 'center',
 		alignItems: 'center',

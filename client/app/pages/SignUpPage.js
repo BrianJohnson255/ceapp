@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, Text, View, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
 import {
 	Alert,
 	ScrollView,
-	TextInput,
 	TouchableOpacity,
 } from 'react-native';
 
@@ -50,7 +50,7 @@ export default class SignUpPage extends React.Component {
 
 					<View style={styles.inputContainer}>
 						<TextInput
-							style={styles.textInput}
+							mode="outlined"
 							placeholder="First Name"
 							textContentType="givenName"
 							maxLength={30}
@@ -60,8 +60,8 @@ export default class SignUpPage extends React.Component {
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
+							mode="outlined"
 							ref={input => this.lastNameInput = input}
-							style={styles.textInput}
 							placeholder="Last Name"
 							textContentType="familyName"
 							maxLength={30}
@@ -71,8 +71,8 @@ export default class SignUpPage extends React.Component {
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
+							mode="outlined"
 							ref={input => this.emailInput = input}
-							style={styles.textInput}
 							placeholder="Email Address"
 							textContentType="emailAddress"
 							autoCapitalize="none"
@@ -83,8 +83,8 @@ export default class SignUpPage extends React.Component {
 					</View>
 					<View style={styles.inputContainer}>
 						<TextInput
+							mode="outlined"
 							ref={input => this.passwordInput = input}
-							style={styles.textInput}
 							placeholder="Password"
 							textContentType="password"
 							maxLength={50}
@@ -94,9 +94,9 @@ export default class SignUpPage extends React.Component {
 						/>
 					</View>
 					<View style={styles.inputContainer}>
-						<TouchableOpacity style={styles.submit} onPress={this.submitForm.bind(this)}>
+						<Button style={styles.submit} onPress={this.submitForm.bind(this)}>
 							<Text style={styles.submitText}>Sign Up</Text>
-						</TouchableOpacity>
+						</Button>
 					</View>
 				</View>
 			</TouchableWithoutFeedback>
@@ -107,7 +107,7 @@ export default class SignUpPage extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: 45,
-		backgroundColor: '#F5FCFF',
+		backgroundColor: '#FFFFFF',
 	},
 	header: {
 		fontSize: 60,
@@ -116,25 +116,27 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 	},
 	inputContainer: {
-		borderColor: '#CCCCCC',
-		borderTopWidth: 1,
-		borderBottomWidth: 1,
-		paddingTop: 15,
-	paddingBottom: 15,
-		justifyContent: 'center',
-		alignItems: 'center',
+		//borderColor: '#CCCCCC',
+		//borderTopWidth: 1,
+		//borderBottomWidth: 1,
+		paddingLeft: 15,
+		paddingRight: 15,
+		paddingTop: 10,
+		paddingBottom: 10,
+		//justifyContent: 'center',
+		//alignItems: 'center',
 	},
 	textInput: {
-		height: 25,
-		fontSize: 25,
+		//height: 25,
+		//fontSize: 25,
 		color: 'black',
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	submit: {
 		borderWidth: 1,
-		borderColor:'#007BFF',
-		backgroundColor: '#007BFF',
+		borderColor:'#260859',
+		backgroundColor: '#260859',
 		padding: 15,
 		margin: 5,
 	},
