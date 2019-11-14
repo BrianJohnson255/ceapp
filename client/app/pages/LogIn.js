@@ -47,6 +47,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 					<TextInput
 						mode="outlined"
+						label="Email Address"
 						autoCapitalize="none"
 						textContentType="emailAddress"
 						placeholder="Email Address"
@@ -58,6 +59,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 					<TextInput
 						mode="outlined"
+						label="Password"
 						ref={input => this.pw = input}
 						placeholder="Password"
 						secureTextEntry={true}

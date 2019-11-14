@@ -51,6 +51,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 						<TextInput
 							mode="outlined"
+							label="First Name"
 							placeholder="First Name"
 							textContentType="givenName"
 							maxLength={30}
@@ -61,6 +62,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 						<TextInput
 							mode="outlined"
+							label="Last Name"
 							ref={input => this.lastNameInput = input}
 							placeholder="Last Name"
 							textContentType="familyName"
@@ -72,6 +74,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 						<TextInput
 							mode="outlined"
+							label="Email Address"
 							ref={input => this.emailInput = input}
 							placeholder="Email Address"
 							textContentType="emailAddress"
@@ -84,6 +87,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 						<TextInput
 							mode="outlined"
+							label="Password"
 							ref={input => this.passwordInput = input}
 							placeholder="Password"
 							textContentType="password"
