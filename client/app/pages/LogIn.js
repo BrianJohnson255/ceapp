@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Keyboard } from 'react-native';
-import { Button, TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View, Keyboard, StatusBar } from 'react-native';
+import { Appbar, Button, TextInput } from 'react-native-paper';
 import {
 	Alert,
 	ScrollView,
@@ -36,8 +36,15 @@ export default class SignUpPage extends React.Component {
 	}
 
 	render() {
-	
+		const { goBack } = this.props.navigation;
+		
 		return (
+			<View>
+			<StatusBar barStyle="light-content" />
+			<View>
+			<Appbar style={{top: 0}}>
+			<Appbar.BackAction onPress={() => goBack()} />
+			</Appbar>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<View style={styles.container}>
 					<View>
@@ -47,6 +54,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 					<TextInput
 						mode="outlined"
+						label="Email Address"
 						autoCapitalize="none"
 						textContentType="emailAddress"
 						placeholder="Email Address"
@@ -58,6 +66,7 @@ export default class SignUpPage extends React.Component {
 					<View style={styles.inputContainer}>
 					<TextInput
 						mode="outlined"
+						label="Password"
 						ref={input => this.pw = input}
 						placeholder="Password"
 						secureTextEntry={true}
@@ -75,6 +84,8 @@ export default class SignUpPage extends React.Component {
 					</View>
 				</View>
 			</TouchableWithoutFeedback>
+			</View>
+			</View>
 		);
 	}
 }
