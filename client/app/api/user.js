@@ -1,4 +1,4 @@
-import { apiGetRequest, apiPostRequest, setAuthToken, getAuthToken } from './util';
+import { apiGetRequest, apiPostRequest, setAuthToken, getAuthToken, deleteAuthToken } from './util';
 
 // user fields:
 //  - firstName
@@ -30,4 +30,8 @@ async function isLoggedIn() {
 	return (await getAuthToken()) !== null;
 }
 
-export { createUser, getUser, login, isLoggedIn };
+function logout() {
+	return deleteAuthToken();
+}
+
+export { createUser, getUser, login, isLoggedIn, logout };

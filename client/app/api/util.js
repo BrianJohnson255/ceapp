@@ -5,9 +5,8 @@ import snakecaseKeys from 'snakecase-keys';
 
 import ENV from '../env';
 
-function apiRequest({ method, path, headers = {}, params = null }) {
-	let resStatus;
-	return fetch(ENV.apiUrl + path, {
+async function apiRequest({ method, path, headers = {}, params = null }) {
+	const res = await fetch(ENV.apiUrl + path, {
 		method,
 		headers: {
 			Accept: 'application/json',
@@ -15,14 +14,9 @@ function apiRequest({ method, path, headers = {}, params = null }) {
 			...headers,
 		},
 		body: params !== null ? JSON.stringify(snakecaseKeys(params)) : null,
-	})
-	.then(r => {
-		resStatus = r.status;
-		return r.json();
-	})
-	.then(json => (
-		{ data: camelcaseKeys(json), status: resStatus }
-	));
+	});
+	const json = await res.json();
+	return { data: camelcaseKeys(json), status: res.status };
 }
 
 function apiGetRequest(path) {
@@ -56,4 +50,14 @@ async function setAuthToken(token) {
 	}
 }
 
-export { apiPostRequest, apiGetRequest, authenticatedApiPostRequest, setAuthToken, getAuthToken };
+
+async function deleteAuthToken() {
+	try {
+		const res = await AsyncStorage.removeItem('@authToken');
+		return res;
+	} catch(e) {
+		// TODO: handle this...
+	}
+}
+
+export { apiPostRequest, apiGetRequest, authenticatedApiPostRequest, setAuthToken, getAuthToken, deleteAuthToken };

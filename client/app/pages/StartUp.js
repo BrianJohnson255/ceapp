@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image} from 'react-native';
 import {Button} from 'react-native-paper'
 
+import { isLoggedIn } from '../api/user';
+import { switchScreen } from '../util';
+
 export default class StartUp extends Component {
+	componentDidMount() {
+		isLoggedIn().then(stat => {
+			if (stat) {
+				switchScreen('Home', this.props.navigation);
+			}
+		});
+	}
+
 	render() {
 		const { navigate } = this.props.navigation;
 		
