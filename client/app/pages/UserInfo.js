@@ -7,7 +7,13 @@ export default class UserInfo extends Component {
 		const { goBack } = this.props.navigation;
 		
 		return (
-			<Image style={{}}source={require('./CEALogo.png')}/>
+			<View>
+				<Appbar style={{top: 0, height: 70}}>
+					<Appbar.BackAction onPress={() => goBack()} />
+					<Appbar.Content title="Profile" />
+				</Appbar>
+				<Image style={{}}source={require('./CEALogo.png')}/>
+			</View>
 		);
 	}
 }

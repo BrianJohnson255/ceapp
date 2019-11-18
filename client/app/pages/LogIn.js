@@ -42,9 +42,9 @@ export default class SignUpPage extends React.Component {
 			<View>
 			<StatusBar barStyle="light-content" />
 			<View>
-			<Appbar style={{top: 0}}>
-			<Appbar.BackAction onPress={() => goBack()} />
-			</Appbar>
+			<Appbar.Header>
+				<Appbar.BackAction onPress={() => goBack()} />
+			</Appbar.Header>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<View style={styles.container}>
 					<View>

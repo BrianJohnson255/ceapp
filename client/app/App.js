@@ -17,11 +17,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 const MainNavigator = createStackNavigator({
   StartUp: { screen: StartUp, navigationOptions: () => ({ header: null })},
   Home: { screen: Home, navigationOptions: () => ({ header: null })},
-  Calendar: { screen: Calendar },
+  Calendar: { screen: Calendar, navigationOptions: () => ({ header: null })},
   LogIn: { screen: LogIn, navigationOptions: () => ({ header: null })},
   SignUpPage: { screen: SignUpPage, navigationOptions: () => ({ header: null })},
-  Production: { screen: Production },
-  UserInfo: {screen: UserInfo},
+  Production: { screen: Production, navigationOptions: () => ({ header: null })},
+  UserInfo: {screen: UserInfo, navigationOptions: () => ({ header: null })},
   CreateProduction: { screen: CreateProduction, navigationOptions: () => ({ header: null })},
 });
 

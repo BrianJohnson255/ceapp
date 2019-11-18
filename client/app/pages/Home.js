@@ -10,10 +10,11 @@ export default class Home extends Component {
 			<View>
 			<StatusBar barStyle="light-content" />
 				<View>
-					<Appbar style={{left: 0, right: 0, top: 0}}>
+					<Appbar.Header>
 						<Appbar.Content title="Home" />
-					</Appbar>
-					<ScrollView contentInset={{bottom: 110}}>
+						<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
+					</Appbar.Header>
+					<ScrollView contentInset={{bottom: 150}}>
 						<TouchableWithoutFeedback onPress={() => navigate('Calendar')}>
 							<Card style={{padding: 10}} elevation={9}>
 								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
@@ -42,13 +43,6 @@ export default class Home extends Component {
 								<Card.Title title="Find Crew" subtitle="Get a top-notch crew for your film" />
 							</Card>
 						</TouchableWithoutFeedback>
-						
-						<TouchableWithoutFeedback onPress={() => navigate('UserInfo')}>
-						<Card style={{padding: 10}} elevation={9}>
-							<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
-							<Card.Title title="My info" subtitle="Veiw and change my profile" />
-						</Card>
-					</TouchableWithoutFeedback>
 						
 						<TouchableWithoutFeedback onPress={() => navigate('CreateProduction')}>
 							<Card style={{padding: 10}} elevation={9}>

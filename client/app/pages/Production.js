@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { Appbar } from 'react-native-paper';
 import ProductionList from "../components/ProductionList.js";
 import ProductionListRow from "../components/ProductionListRow.js";
 
@@ -20,12 +21,23 @@ export default class Home extends Component {
 	}
 
 	render() {
+		
+		const { goBack } = this.props.navigation;
+		const { navigate } = this.props.navigation;
+		
 		return (
-			<View style={styles.item}>
-				<ProductionList
-          			itemList={this.state.productions}
-        		/>
-      		</View>
+			<View>
+				<Appbar.Header>
+					<Appbar.BackAction onPress={() => goBack()} />
+					<Appbar.Content title="Production" />
+					<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
+				</Appbar.Header>
+				<View style={styles.item}>
+					<ProductionList
+						itemList={this.state.productions}
+					/>
+				</View>
+			</View>
 		);
 	}
 }
