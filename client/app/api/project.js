@@ -8,4 +8,8 @@ function getProject(id) {
 	return apiGetRequest(`/project/${id}`);
 }
 
-export { createProject, getProject };
+function searchProjects({ title, description }) {
+	return apiGetRequest(`/search/projects?q=${title}+${description}`);
+}
+
+export { createProject, getProject, searchProjects };
