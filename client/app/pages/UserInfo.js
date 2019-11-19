@@ -8,10 +8,10 @@ export default class UserInfo extends Component {
 		
 		return (
 			<View>
-				<Appbar style={{top: 0, height: 70}}>
+				<Appbar.Header>
 					<Appbar.BackAction onPress={() => goBack()} />
 					<Appbar.Content title="Profile" />
-				</Appbar>
+				</Appbar.Header>
 				<Image style={{}}source={require('./CEALogo.png')}/>
 			</View>
 		);
