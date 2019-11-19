@@ -15,5 +15,4 @@ const ProductionListRow = ({ production }) => (
 
 	</View>
 );
-
 export default ProductionListRow;
