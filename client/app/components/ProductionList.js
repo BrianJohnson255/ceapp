@@ -7,7 +7,7 @@ const ProductionList = ({ itemList }) => (
 		<FlatList
 				data={itemList}
 				renderItem={({ item }) => <ProductionListRow production={item} />}
-				keyExtractor={item => item.id}
+				keyExtractor={item => item.id.toString()}
 			/>
 
 	</View>
