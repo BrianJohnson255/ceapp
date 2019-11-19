@@ -14,14 +14,7 @@ export default class Home extends Component {
 						<Appbar.Content title="Home" />
 						<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
 					</Appbar.Header>
-					<ScrollView contentInset={{bottom: 150}}>
-						<TouchableWithoutFeedback onPress={() => navigate('Calendar')}>
-							<Card style={{padding: 10}} elevation={9}>
-								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
-								<Card.Title title="Calendar" subtitle="See a calendar with all productions" />
-							</Card>
-						</TouchableWithoutFeedback>
-					
+					<ScrollView contentInset={{bottom: '150%'}}>
 						<TouchableWithoutFeedback onPress={() => navigate('Production')}>
 							<Card style={{padding: 10}} elevation={9}>
 								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
