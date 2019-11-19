@@ -14,17 +14,18 @@ export default class Home extends Component {
 						<Appbar.Content title="Home" />
 						<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
 					</Appbar.Header>
-					<ScrollView contentInset={{bottom: 150}}>
-						<TouchableWithoutFeedback onPress={() => navigate('Calendar')}>
+					<ScrollView contentInset={{bottom: '150%'}}>
+						{/*<TouchableWithoutFeedback onPress={() => navigate('Calendar')}>
 							<Card style={{padding: 10}} elevation={9}>
 								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
 								<Card.Title title="Calendar" subtitle="See a calendar with all productions" />
 							</Card>
-						</TouchableWithoutFeedback>
+		</TouchableWithoutFeedback>*/}
 					
 						<TouchableWithoutFeedback onPress={() => navigate('Production')}>
 							<Card style={{padding: 10}} elevation={9}>
-								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+								{/*<Card.Cover source={{ uri: '/assests/img/ProductionImg.jpg' }} />*/}
+								<Card.Cover source={require('../../assets/img/ProductionImg.jpg')} />
 								<Card.Title title="Active Productions" subtitle="Find a production for you" />
 							</Card>
 						
@@ -32,14 +33,14 @@ export default class Home extends Component {
 						
 						<TouchableWithoutFeedback>
 							<Card style={{padding: 10}} elevation={9} onPress={() => navigate('PeopleSearch')}>
-								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+								<Card.Cover source={require('../../assets/img/FilmAndCrew.jpg')} />
 								<Card.Title title="Find Directors / Crew" subtitle="Be a part of a top-notch crew" />
 							</Card>
 						</TouchableWithoutFeedback>
 						
 						<TouchableWithoutFeedback onPress={() => navigate('CreateProduction')}>
 							<Card style={{padding: 10}} elevation={9}>
-								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
+								<Card.Cover source={require('../../assets/img/CreateProduction.jpeg')} />
 								<Card.Title title="Create Production" subtitle="Create a production for potential crew members to find" />
 							</Card>
 						</TouchableWithoutFeedback>
