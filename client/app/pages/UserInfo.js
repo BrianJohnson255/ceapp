@@ -15,6 +15,18 @@ export default class UserInfo extends Component {
 					<Appbar.BackAction onPress={() => goBack()} />
 					<Appbar.Content title="Profile" />
 				</Appbar.Header>
+				<ScrollView contentInset={{bottom: 150}}>
+			
+				<Image style={{...styles.item}}source={require('./CEALogo.png')}/>
+				
+				<View >
+				<Paragraph style ={{...styles.paragraph}}>Name: </Paragraph>
+				<Paragraph style ={{...styles.paragraph}}>Email: </Paragraph>
+				<Paragraph style ={{...styles.paragraph}}>Phone Number: </Paragraph>
+				<Paragraph style ={{...styles.paragraph}}>Productions: </Paragraph>
+				<Paragraph style ={{...styles.paragraph}}>Skills: </Paragraph>
+				</View>
+				</ScrollView>
 				<Image style={{}}source={require('./CEALogo.png')}/>
 				<Text>{`\n`}</Text>
 				<View style={{ ...styles.item,  backgroundColor: 'white' }}>
@@ -24,15 +36,22 @@ export default class UserInfo extends Component {
 		);
 	}
 }
-
 const styles = StyleSheet.create({
-	button: {
-		width: '50%',
-		
-			
-	},
 	item: {
 		width: '100%',
 		alignItems: 'center',
+		 
+	},
+
+	paragraph: {
+		fontSize: 25,
+		color: '#260859',
+		justifyContent: 'left',
+		height: '10%',
+	
+	},
+	button: {
+		width: '50%',
+			
 	},
 });
