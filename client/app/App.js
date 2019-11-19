@@ -10,6 +10,7 @@ import LogIn from './pages/LogIn';
 import SignUpPage from './pages/SignUpPage';
 import Production from './pages/Production';
 import CreateProduction from './pages/CreateProduction';
+import PeopleSearch from './pages/PeopleSearch';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -23,6 +24,7 @@ const MainNavigator = createStackNavigator({
   Production: { screen: Production, navigationOptions: () => ({ header: null })},
   UserInfo: {screen: UserInfo, navigationOptions: () => ({ header: null })},
   CreateProduction: { screen: CreateProduction, navigationOptions: () => ({ header: null })},
+  PeopleSearch: { screen: PeopleSearch, navigationOptions: () => ({ header: null})},
 });
 
 const theme = {

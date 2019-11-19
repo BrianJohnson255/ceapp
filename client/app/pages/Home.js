@@ -31,16 +31,9 @@ export default class Home extends Component {
 						</TouchableWithoutFeedback>
 						
 						<TouchableWithoutFeedback>
-							<Card style={{padding: 10}} elevation={9}>
+							<Card style={{padding: 10}} elevation={9} onPress={() => navigate('PeopleSearch')}>
 								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
-								<Card.Title title="Find Directors" subtitle="Find a director you want to work with" />
-							</Card>
-						</TouchableWithoutFeedback>
-						
-						<TouchableWithoutFeedback>
-							<Card style={{padding: 10}} elevation={9}>
-								<Card.Cover source={{ uri: 'https://picsum.photos/400' }} />
-								<Card.Title title="Find Crew" subtitle="Get a top-notch crew for your film" />
+								<Card.Title title="Find Directors / Crew" subtitle="Be a part of a top-notch crew" />
 							</Card>
 						</TouchableWithoutFeedback>
 						
