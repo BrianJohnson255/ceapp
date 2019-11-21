@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Keyboard, TouchableWithoutFeedback, Image } from 'react-native';
-import { Appbar, Button, TextInput } from 'react-native-paper';
-import { switchScreen } from '../util';
+import { Appbar, Button, TextInput, Paragraph } from 'react-native-paper';
+
 import { logout } from '../api/user';
 
 export default class UserInfo extends Component {
@@ -11,26 +11,30 @@ export default class UserInfo extends Component {
 		
 		return (
 			<View>
+				<View>
 				<Appbar.Header>
 					<Appbar.BackAction onPress={() => goBack()} />
 					<Appbar.Content title="Profile" />
 				</Appbar.Header>
-				<ScrollView contentInset={{bottom: 150}}>
+				<Image style={{display: 'flex', justifyContent: 'center',flexDirection: 'row'}}source={require('./CEALogo.png')}/>
+
+				<ScrollView >
 			
-				<Image style={{...styles.item}}source={require('./CEALogo.png')}/>
 				
-				<View >
-				<Paragraph style ={{...styles.paragraph}}>Name: </Paragraph>
-				<Paragraph style ={{...styles.paragraph}}>Email: </Paragraph>
-				<Paragraph style ={{...styles.paragraph}}>Phone Number: </Paragraph>
-				<Paragraph style ={{...styles.paragraph}}>Productions: </Paragraph>
-				<Paragraph style ={{...styles.paragraph}}>Skills: </Paragraph>
+				<Paragraph style = {{...styles.p}}>Name: </Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph style = {{...styles.p}}>Email: </Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph style = {{...styles.p}}>Phone Number: </Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph style = {{...styles.p}}>Productions: </Paragraph>
+				<Paragraph></Paragraph>
+				<Paragraph style = {{...styles.p}}>Skills: </Paragraph>
+				<Paragraph></Paragraph>
+				<View style = {{display: 'flex', justifyContent: 'center', flexDirection: 'row'}}>
+				<Button style={{ ...styles.button }} mode="contained" color="#260859" onPress={() => {logout(); navigate('StartUp')}}>Log Out</Button>
 				</View>
 				</ScrollView>
-				<Image style={{}}source={require('./CEALogo.png')}/>
-				<Text>{`\n`}</Text>
-				<View style={{ ...styles.item,  backgroundColor: 'white' }}>
-					<Button style={{ ...styles.button}} mode="contained" color="#260859" onPress={() => {logout(); navigate('StartUp')}}>Log Out</Button>
 				</View>
 			</View>
 		);
@@ -38,20 +42,18 @@ export default class UserInfo extends Component {
 }
 const styles = StyleSheet.create({
 	item: {
-		width: '100%',
 		alignItems: 'center',
 		 
 	},
 
-	paragraph: {
+	p: {
 		fontSize: 25,
 		color: '#260859',
-		justifyContent: 'left',
-		height: '10%',
-	
+		alignItems: 'left',
+		paddingTop: "5%",
+		paddingLeft: "5%",
 	},
 	button: {
-		width: '50%',
-			
+		width: '60%',
 	},
 });
