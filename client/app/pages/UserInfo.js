@@ -10,15 +10,15 @@ export default class UserInfo extends Component {
 		const { navigate } = this.props.navigation;
 		
 		return (
-			<View>
-				<View>
+			<View style={{flex: 1}}>
+				<View style={{flex: 1}}>
 				<Appbar.Header>
 					<Appbar.BackAction onPress={() => goBack()} />
 					<Appbar.Content title="Profile" />
 				</Appbar.Header>
 				<Image style={{display: 'flex', justifyContent: 'center',flexDirection: 'row'}}source={require('./CEALogo.png')}/>
 
-				<ScrollView >
+				<ScrollView style={{flex: 1}}>
 			
 				
 				<Paragraph style = {{...styles.p}}>Name: </Paragraph>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 	p: {
 		fontSize: 25,
 		color: '#260859',
-		alignItems: 'left',
+		left: 0,
 		paddingTop: "5%",
 		paddingLeft: "5%",
 	},
