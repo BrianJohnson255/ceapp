@@ -1,19 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { Card } from 'react-native-paper';
 
 const UserListRow = ({ user }) => (
-	<View style = {{width: 400, height: 125}}>
-		<View>
-			<Text>
-				{user.firstName}
-			</Text>
-			<Text>
-				{user.lastName}
-			</Text>
-			<Text>
-				{user.email}
-			</Text>
-		</View>
+	<View style = {{flex: 1, padding: 10}}>
+		<Card style={{backgroundColor: '#F6F6F6'}}>
+			<Card.Content>
+				<Text style={{fontSize: 24}}>{user.firstName + " " + user.lastName}</Text>
+				<Text>{user.email}</Text>
+			</Card.Content>
+		</Card>
 
 	</View>
 );

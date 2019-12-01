@@ -10,22 +10,46 @@ export default class PeopleSearch extends React.Component {
 		super(params)
 		
 		this.state = {
-			newQuery: '',
 			users: [
 				{
 					firstName: "Bill",
 					lastName: "Bill",
 					email: "billbill@bill.bill",
 					id: "1",
+				},
+				{
+					firstName: "Brian",
+					lastName: "Johnson",
+					email: "btjohnson@mail.lipscomb.edu",
+					id: "2",
 				}
 			],
+			
+			queriedUsers: [],
 		};
+		
+		var i;
+		for (i = 0; i < this.state.users.length; i++) {
+			this.state.queriedUsers.push(this.state.users[i]);
+		}
+	}
+	
+	userSearch(query) {
+		newQueriedUsers = [];
+		
+		var i;
+		for (i = 0; i < this.state.users.length; i++) {
+			if (this.state.users[i].firstName.search(query) != -1 || this.state.users[i].lastName.search(query) != -1) {
+				newQueriedUsers.push(this.state.users[i]);
+			}
+		}
+		
+		this.setState({ queriedUsers: newQueriedUsers});
 	}
 	
 	render() {
 		const { goBack } = this.props.navigation;
 		const { navigate } = this.props.navigation;
-		const { newQuery } = this.state;
 		
 		return (
 			<View>
@@ -37,11 +61,11 @@ export default class PeopleSearch extends React.Component {
 						<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
 					</Appbar.Header>
 					<View style={{padding: 10}}>
-						<Searchbar placeholder="Search" onChangeText={query => { this.setState({ newQuery: query}); }} value={newQuery} />
+						<Searchbar placeholder="Search" onChangeText={query => { this.userSearch(query) }} />
 					</View>
 					<View style={styles.item}>
 						<UserList
-							itemList={this.state.users}
+							itemList={this.state.queriedUsers}
 						/>
 					</View>
 				</View>
