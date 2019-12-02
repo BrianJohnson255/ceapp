@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 
 const UserListRow = ({ user }) => (
-	<View style = {{flex: 1, padding: 10}}>
+	<View style = {{flex: 1, padding: 10, width: '100%'}}>
 		<Card style={{backgroundColor: '#F6F6F6'}}>
 			<Card.Content>
 				<Text style={{fontSize: 24}}>{user.firstName + " " + user.lastName}</Text>

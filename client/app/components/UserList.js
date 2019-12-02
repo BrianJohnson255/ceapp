@@ -4,7 +4,7 @@ import UserListRow from './UserListRow.js';
 
 const UserList = ({ itemList }) => (
 	<View>
-		<FlatList style={{width: '100%'}}
+		<FlatList
 				data={itemList}
 				renderItem={({ item }) => <UserListRow user={item} />}
 				keyExtractor={item => item.id}
