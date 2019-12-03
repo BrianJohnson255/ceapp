@@ -8,7 +8,7 @@ import R from 'ramda';
 
 import { searchProjects } from '../api/project';
 
-const placeholderImg = "https://picsum.photos/75";
+const placeholderImg = "http://placekitten.com/75/75";
 
 export default class Home extends Component {
 	constructor(params) {
