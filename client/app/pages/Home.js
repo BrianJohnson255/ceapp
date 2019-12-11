@@ -7,14 +7,14 @@ export default class Home extends Component {
 		const { navigate } = this.props.navigation;
 		
 		return (
-			<View>
+			<View style={{flex: 1}}>
 			<StatusBar barStyle="light-content" />
-				<View>
+				<View style={{flex: 1}}>
 					<Appbar.Header>
 						<Appbar.Content title="Home" />
 						<Appbar.Action icon="account" onPress={() => navigate('UserInfo')} />
 					</Appbar.Header>
-					<ScrollView contentInset={{bottom: '150%'}}>
+					<ScrollView style={{flex: 1}}>
 						<TouchableWithoutFeedback onPress={() => navigate('Production')}>
 							<Card style={{padding: 10}} elevation={9}>
 								{/*<Card.Cover source={{ uri: '/assests/img/ProductionImg.jpg' }} />*/}
