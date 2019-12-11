@@ -18,4 +18,4 @@ To connect to the first install the [Expo](https://expo.io/) app on your phone. 
 
 ### Backend server
 
-To setup the server, run `bundle install` in the `server` directory. Once done, run `rails server -b 0.0.0.0 -p 3000` to start the server.
+To setup the server, run `bundle install` in the `server` directory, followed by `rails db:migrate`. Once done, run `rails server -b 0.0.0.0 -p 3000` to start the server.
